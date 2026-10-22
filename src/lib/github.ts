@@ -1,65 +1,24 @@
 import fallbackData from '../data/fallback-data.json';
 import profileConfig from '../data/profile.json';
 import curatedProjectsData from '../data/projects.json';
-import type { CuratedProjectOverride } from '../types';
+import type {
+  CuratedProjectOverride,
+  GitHubUserProfile,
+  GitHubRepo,
+  EnrichedProject,
+  LanguageStat,
+  PortfolioData,
+} from '../types';
+
+export type {
+  GitHubUserProfile,
+  GitHubRepo,
+  EnrichedProject,
+  LanguageStat,
+  PortfolioData,
+};
 
 const curatedProjects = curatedProjectsData as CuratedProjectOverride[];
-
-export interface GitHubUserProfile {
-  login: string;
-  name: string;
-  avatar_url: string;
-  bio: string;
-  location: string;
-  public_repos: number;
-  html_url: string;
-}
-
-export interface GitHubRepo {
-  id: number;
-  name: string;
-  full_name: string;
-  description: string | null;
-  html_url: string;
-  homepage: string | null;
-  stargazers_count: number;
-  forks_count: number;
-  language: string | null;
-  topics: string[];
-  pushed_at: string;
-  archived: boolean;
-}
-
-export interface EnrichedProject {
-  name: string;
-  displayName: string;
-  description: string;
-  problem: string;
-  outcome: string;
-  repoUrl: string;
-  demoUrl?: string;
-  stars: number;
-  forks: number;
-  language: string;
-  tags: string[];
-  updatedAt: string;
-  featuredOrder: number;
-}
-
-export interface LanguageStat {
-  language: string;
-  count: number;
-  percentage: number;
-  color: string;
-}
-
-export interface PortfolioData {
-  user: GitHubUserProfile;
-  featuredProjects: EnrichedProject[];
-  languageStats: LanguageStat[];
-  lastSyncedAt: string;
-  isFallback: boolean;
-}
 
 export const LANGUAGE_COLORS: Record<string, string> = {
   Python: '#3572A5',

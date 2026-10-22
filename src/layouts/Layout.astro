@@ -55,9 +55,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://itto0.gi
     <!-- Zero-FOUC Theme Script -->
     <script is:inline>
       const theme = (() => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
-        }
+        try {
+          if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+            return localStorage.getItem('theme');
+          }
+        } catch (_) {}
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
           return 'dark';
         }
@@ -70,7 +72,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://itto0.gi
       }
     </script>
   </head>
-  <body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 flex flex-col min-h-screen">
+  <body id="top" class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 flex flex-col min-h-screen">
     <slot />
   </body>
 </html>

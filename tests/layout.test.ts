@@ -7,6 +7,7 @@ describe('Base Layout, SEO & Theme Switcher (Task 4)', () => {
   const faviconPath = path.join(rootDir, 'public', 'favicon.svg');
   const robotsPath = path.join(rootDir, 'public', 'robots.txt');
   const resumePath = path.join(rootDir, 'public', 'resume.pdf');
+  const ogImagePath = path.join(rootDir, 'public', 'og-image.png');
   const layoutPath = path.join(rootDir, 'src', 'layouts', 'Layout.astro');
   const themeTogglePath = path.join(rootDir, 'src', 'components', 'ThemeToggle.astro');
 
@@ -31,6 +32,10 @@ describe('Base Layout, SEO & Theme Switcher (Task 4)', () => {
 
     it('creates public/resume.pdf placeholder file', () => {
       expect(fs.existsSync(resumePath), 'public/resume.pdf must exist').toBe(true);
+    });
+
+    it('creates public/og-image.png social preview card', () => {
+      expect(fs.existsSync(ogImagePath), 'public/og-image.png must exist').toBe(true);
     });
   });
 
@@ -108,9 +113,10 @@ describe('Base Layout, SEO & Theme Switcher (Task 4)', () => {
       expect(layout).toContain("document.documentElement.classList.remove('dark')");
     });
 
-    it('has accessible body styling and slot container', () => {
+    it('has accessible body styling, id="top" anchor, and slot container', () => {
       const layout = fs.readFileSync(layoutPath, 'utf-8');
-      expect(layout).toContain('<body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 flex flex-col min-h-screen">');
+      expect(layout).toMatch(/<body[^>]*\bid="top"/);
+      expect(layout).toMatch(/<body[^>]*\bclass="[^"]*bg-zinc-50[^"]*dark:bg-zinc-950/);
       expect(layout).toContain('<slot />');
     });
   });

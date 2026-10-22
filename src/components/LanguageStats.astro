@@ -17,7 +17,7 @@ const { stats = [] } = Astro.props;
   </div>
 
   <!-- Stacked Bar -->
-  <div class="h-3 w-full rounded-full overflow-hidden flex bg-zinc-100 dark:bg-zinc-800" role="progressbar" aria-label="GitHub language breakdown">
+  <div class="h-3 w-full rounded-full overflow-hidden flex bg-zinc-100 dark:bg-zinc-800" role="img" aria-label="GitHub language breakdown">
     {stats.map((stat) => (
       <div
         style={`width: ${stat.percentage}%; background-color: ${stat.color};`}

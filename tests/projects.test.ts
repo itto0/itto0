@@ -92,11 +92,13 @@ describe('Featured Projects & Language Breakdown (Task 6)', () => {
       expect(stats).toMatch(/Across public repositories/i);
     });
 
-    it('renders stacked horizontal percentage bar with dynamic inline width and color', () => {
+    it('renders stacked horizontal percentage bar with dynamic inline width and color, and accessible role="img"', () => {
       const stats = fs.readFileSync(languageStatsPath, 'utf-8');
       expect(stats).toContain('{stats.map');
       expect(stats).toMatch(/width:\s*\$\{stat\.percentage\}%/);
       expect(stats).toMatch(/background-color:\s*\$\{stat\.color\}/);
+      expect(stats).toContain('role="img"');
+      expect(stats).toContain('aria-label="GitHub language breakdown"');
     });
 
     it('renders legend with language name, color dot, and percentage share', () => {
