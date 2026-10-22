@@ -1,12 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ThemeToggle from '../components/ThemeToggle.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import { getPortfolioData } from '../lib/github';
+
+const data = await getPortfolioData();
 ---
+
 <Layout>
-  <header class="p-4 flex justify-end">
-    <ThemeToggle />
-  </header>
-  <main class="flex-1 p-4">
-    <h1>Test Page</h1>
+  <Navbar />
+  <main class="flex-1">
+    <Hero user={data.user} />
   </main>
 </Layout>

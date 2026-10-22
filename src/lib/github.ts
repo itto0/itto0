@@ -114,6 +114,7 @@ export async function getPortfolioData(): Promise<PortfolioData> {
   try {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 4000);
+    timeoutId.unref?.();
 
     try {
       const [userRes, reposRes] = await Promise.all([
