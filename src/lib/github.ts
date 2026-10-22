@@ -98,7 +98,7 @@ export function calculateLanguageStats(repos: GitHubRepo[]): LanguageStat[] {
 
 export async function getPortfolioData(): Promise<PortfolioData> {
   const username = profileConfig.username || 'itto0';
-  const token = typeof process !== 'undefined' ? process.env?.GITHUB_TOKEN : undefined;
+  const token = typeof process !== 'undefined' ? (process.env?.PROFILE_TOKEN || process.env?.GITHUB_TOKEN) : undefined;
   const headers: Record<string, string> = {
     'User-Agent': 'Portfolio-Build-Sync',
     Accept: 'application/vnd.github.v3+json',
