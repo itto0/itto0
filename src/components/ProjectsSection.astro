@@ -1,0 +1,51 @@
+---
+import type { EnrichedProject, LanguageStat } from '../lib/github';
+import ProjectCard from './ProjectCard.astro';
+import LanguageStats from './LanguageStats.astro';
+
+interface Props {
+  projects: EnrichedProject[];
+  languageStats: LanguageStat[];
+}
+
+const { projects = [], languageStats = [] } = Astro.props;
+---
+
+<section id="projects" class="py-16 sm:py-20 border-b border-zinc-200 dark:border-zinc-800/60 scroll-mt-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-10">
+    <!-- Header -->
+    <div class="space-y-2">
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50">
+        Featured Projects
+      </h2>
+      <p class="text-zinc-600 dark:text-zinc-400 text-base max-w-2xl">
+        Curated production systems, computer vision models, and streaming pipelines with real-world context.
+      </p>
+    </div>
+
+    <!-- Language Ecosystem Widget -->
+    {languageStats.length > 0 && <LanguageStats stats={languageStats} />}
+
+    <!-- Project Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {projects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+
+    <!-- Link to all GitHub Repositories -->
+    <div class="pt-4 text-center">
+      <a
+        href="https://github.com/itto0?tab=repositories"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900/60 text-sm font-medium text-zinc-800 dark:text-zinc-200 hover:border-emerald-500 hover:text-emerald-600 dark:hover:border-emerald-500 dark:hover:text-emerald-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 shadow-sm"
+      >
+        <span>View all repositories on GitHub</span>
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
