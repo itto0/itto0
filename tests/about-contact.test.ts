@@ -116,6 +116,13 @@ describe('About, Skills, Contact & Footer (Task 7)', () => {
     beforeEach(() => {
       mockClipboardText = '';
       mockFeedbackVisible = false;
+      if (!globalThis.navigator) {
+        Object.defineProperty(globalThis, 'navigator', {
+          value: {},
+          configurable: true,
+          writable: true,
+        });
+      }
       Object.defineProperty(globalThis.navigator, 'clipboard', {
         value: {
           writeText: vi.fn(async (text: string) => {
