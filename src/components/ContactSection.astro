@@ -1,0 +1,144 @@
+---
+import profileData from '../data/profile.json';
+---
+
+<section id="contact" class="py-16 sm:py-24 scroll-mt-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="relative p-8 sm:p-12 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-900/60 dark:to-zinc-950 text-center space-y-6 shadow-sm overflow-hidden">
+      <!-- Status & Timezone Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-300">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>{profileData.status}</span>
+        <span class="text-zinc-400 dark:text-zinc-600">·</span>
+        <span class="text-zinc-600 dark:text-zinc-400 font-mono text-[11px]">{profileData.location} (UTC+7 / WIB)</span>
+      </div>
+
+      <div class="space-y-2 max-w-xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50">
+          Let's Build Something Together
+        </h2>
+        <p class="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed">
+          Interested in collaborating, hiring, or discussing backend systems? Reach out directly via email.
+        </p>
+      </div>
+
+      <!-- Action Area: Primary Email CTA & Copy Button -->
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <!-- Direct mailto link -->
+        <a
+          href={`mailto:${profileData.email}`}
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-zinc-950"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <span>{profileData.email}</span>
+        </a>
+
+        <!-- Copy Email Button with Toast/Tooltip Feedback -->
+        <div class="relative">
+          <button
+            id="copy-email-btn"
+            type="button"
+            data-email={profileData.email}
+            aria-label="Copy email address"
+            class="inline-flex items-center gap-2 px-4 py-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-sm font-medium transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-zinc-950"
+          >
+            <svg id="copy-icon" class="w-4 h-4 text-zinc-500 dark:text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            <svg id="check-icon" class="w-4 h-4 text-emerald-600 dark:text-emerald-400 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="copy-btn-text">Copy Email</span>
+          </button>
+
+          <!-- Feedback Toast / Tooltip -->
+          <div
+            id="copy-feedback"
+            role="status"
+            aria-live="polite"
+            class="absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-md bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 text-xs font-medium shadow-md transition-all opacity-0 pointer-events-none duration-150"
+          >
+            Copied to clipboard!
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Links & Metadata -->
+      <div class="pt-4 flex items-center justify-center gap-6 text-sm text-zinc-500 dark:text-zinc-400">
+        <a
+          href={profileData.socials.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded"
+        >
+          GitHub
+        </a>
+        <span>·</span>
+        <a
+          href={profileData.socials.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded"
+        >
+          LinkedIn
+        </a>
+        <span>·</span>
+        <span>{profileData.location}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const copyBtn = document.getElementById('copy-email-btn');
+  const copyFeedback = document.getElementById('copy-feedback');
+  const copyIcon = document.getElementById('copy-icon');
+  const checkIcon = document.getElementById('check-icon');
+  const copyBtnText = document.getElementById('copy-btn-text');
+  let copyTimeout;
+
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      const email = copyBtn.getAttribute('data-email');
+      if (!email) return;
+
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(email);
+        } else {
+          // Fallback for older browsers
+          const textarea = document.createElement('textarea');
+          textarea.value = email;
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+        }
+
+        // Show feedback state
+        if (copyIcon && checkIcon && copyBtnText && copyFeedback) {
+          copyIcon.classList.add('hidden');
+          checkIcon.classList.remove('hidden');
+          copyBtnText.textContent = 'Copied!';
+          copyFeedback.classList.remove('opacity-0');
+          copyFeedback.classList.add('opacity-100');
+
+          clearTimeout(copyTimeout);
+          copyTimeout = setTimeout(() => {
+            copyIcon.classList.remove('hidden');
+            checkIcon.classList.add('hidden');
+            copyBtnText.textContent = 'Copy Email';
+            copyFeedback.classList.add('opacity-0');
+            copyFeedback.classList.remove('opacity-100');
+          }, 2000);
+        }
+      } catch (err) {
+        console.error('Failed to copy email:', err);
+      }
+    });
+  }
+</script>

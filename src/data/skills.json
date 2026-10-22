@@ -9,11 +9,11 @@
       "skills": ["FastAPI", "ASP.NET Core", "OpenCV", "Tokio", "Astro", "Tailwind CSS"]
     },
     {
-      "name": "Databases & Streaming",
+      "name": "Databases & Storage",
       "skills": ["PostgreSQL", "Redis", "Kafka", "Change Data Capture (CDC)"]
     },
     {
-      "name": "Tools & Platforms",
+      "name": "Tools & Cloud",
       "skills": ["Docker", "Linux", "Git", "GitHub Actions", "OPC DA", "CI/CD"]
     }
   ]

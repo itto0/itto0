@@ -1,0 +1,51 @@
+---
+import skillsData from '../data/skills.json';
+import profileData from '../data/profile.json';
+---
+
+<section id="about" class="py-16 sm:py-20 border-b border-zinc-200 dark:border-zinc-800/60 scroll-mt-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-12">
+    <!-- Header -->
+    <div class="space-y-2">
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50">
+        About Me
+      </h2>
+      <p class="text-zinc-600 dark:text-zinc-400 text-base max-w-2xl">
+        Engineering philosophy, core technical domains, and the tools I use daily.
+      </p>
+    </div>
+
+    <!-- Two-column narrative & skills -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="space-y-4 text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <p>
+          I am a software engineer based in {profileData.location} focused on building robust backend systems, data pipelines, and practical computer vision applications.
+        </p>
+        <p>
+          My work emphasizes clean architecture, deterministic performance, and maintainable software design. Whether optimizing concurrent state counters in Python and Rust or configuring change data capture pipelines, I enjoy tackling engineering problems that directly improve operational efficiency.
+        </p>
+        <p>
+          When building software, I value minimal dependencies, comprehensive automated testing, and clear documentation.
+        </p>
+      </div>
+
+      <!-- Skills Matrix -->
+      <div id="skills" class="space-y-6 scroll-mt-16">
+        {skillsData.categories.map((category) => (
+          <div class="space-y-2">
+            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
+              {category.name}
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {category.skills.map((skill) => (
+                <span class="px-2.5 py-1 text-xs font-mono rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:border-emerald-500/40 transition-colors">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

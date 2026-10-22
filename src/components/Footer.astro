@@ -1,0 +1,48 @@
+---
+import profileData from '../data/profile.json';
+
+interface Props {
+  lastSyncedAt: string;
+  isFallback: boolean;
+}
+
+const { lastSyncedAt, isFallback } = Astro.props;
+const currentYear = new Date().getFullYear();
+const formattedSync = new Date(lastSyncedAt).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+
+<footer class="border-t border-zinc-200 dark:border-zinc-800/80 py-8 text-xs text-zinc-500 dark:text-zinc-500">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <!-- Copyright & Author -->
+    <div class="flex items-center gap-2">
+      <span>© {currentYear} {profileData.name}. All rights reserved.</span>
+    </div>
+
+    <!-- Sync Badge, Tech attribution, and Back-to-top link -->
+    <div class="flex flex-wrap items-center justify-center gap-3 font-mono text-[11px]">
+      <!-- Build-Time Sync Status -->
+      <span class="flex items-center gap-1.5" title={isFallback ? 'Showing cached fallback data' : `Synced with GitHub at ${lastSyncedAt}`}>
+        <span class={`w-2 h-2 rounded-full ${isFallback ? 'bg-amber-500' : 'bg-emerald-500'}`}></span>
+        <span>{isFallback ? 'Synced from cache' : `GitHub sync: ${formattedSync}`}</span>
+      </span>
+
+      <span>·</span>
+      <span>Built with Astro</span>
+
+      <span>·</span>
+      <!-- Back-to-top Link -->
+      <a
+        href="#top"
+        aria-label="Back to top"
+        class="inline-flex items-center gap-1 hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded px-1"
+      >
+        <span>Back to top</span>
+        <span aria-hidden="true">↑</span>
+      </a>
+    </div>
+  </div>
+</footer>
