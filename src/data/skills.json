@@ -1,0 +1,20 @@
+{
+  "categories": [
+    {
+      "name": "Languages",
+      "skills": ["Python", "Rust", "C#", "TypeScript", "SQL", "Go"]
+    },
+    {
+      "name": "Frameworks & Libraries",
+      "skills": ["FastAPI", "ASP.NET Core", "OpenCV", "Tokio", "Astro", "Tailwind CSS"]
+    },
+    {
+      "name": "Databases & Streaming",
+      "skills": ["PostgreSQL", "Redis", "Kafka", "Change Data Capture (CDC)"]
+    },
+    {
+      "name": "Tools & Platforms",
+      "skills": ["Docker", "Linux", "Git", "GitHub Actions", "OPC DA", "CI/CD"]
+    }
+  ]
+}

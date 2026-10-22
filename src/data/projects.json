@@ -1,0 +1,42 @@
+[
+  {
+    "repoName": "counter-service",
+    "displayName": "Counter Service",
+    "problem": "Handling high-frequency event ingestion and concurrent state counters without database bottlenecks or race conditions.",
+    "outcome": "Engineered an asynchronous counting microservice with FastAPI and Redis that sustains 5,000+ req/sec with sub-millisecond latencies.",
+    "tags": ["Python", "FastAPI", "Redis", "Docker", "AsyncIO"],
+    "featuredOrder": 1
+  },
+  {
+    "repoName": "cdc-chicken-counting",
+    "displayName": "Automated Vision Counting",
+    "problem": "Manual counting of moving livestock in industrial poultry farming was error-prone, labor-intensive, and impossible to audit in real-time.",
+    "outcome": "Constructed an automated computer vision pipeline using OpenCV and tracking algorithms that achieves 96%+ counting accuracy in dense motion frames.",
+    "tags": ["Python", "OpenCV", "Computer Vision", "NumPy", "Object Tracking"],
+    "featuredOrder": 2
+  },
+  {
+    "repoName": "cdc-pipeline",
+    "displayName": "CDC Stream Pipeline",
+    "problem": "Legacy relational database changes needed to be synchronized across analytics clusters with zero data loss and minimal replication lag.",
+    "outcome": "Built a high-throughput Change Data Capture (CDC) processing stream in Rust that guarantees at-least-once delivery with low memory footprint.",
+    "tags": ["Rust", "Data Pipeline", "CDC", "Streaming", "Tokio"],
+    "featuredOrder": 3
+  },
+  {
+    "repoName": "LicensePlateRecognition",
+    "displayName": "Automatic Plate Recognition",
+    "problem": "Detecting and extracting vehicle license plate alphanumeric characters in varying illumination, angles, and vehicle speeds.",
+    "outcome": "Developed an image preprocessing and OCR recognition pipeline that localizes license plates and parses character sequences accurately.",
+    "tags": ["Python", "OpenCV", "OCR", "Image Processing"],
+    "featuredOrder": 4
+  },
+  {
+    "repoName": "ASP.NET-Core-MVC-6-Starter-Kit",
+    "displayName": "Enterprise .NET 6 Starter Kit",
+    "problem": "Repetitive boilerplate and inconsistent architecture across new enterprise internal tools and MVC services.",
+    "outcome": "Authored a production-ready starter kit featuring clean architecture, repository patterns, JWT auth, and automated migrations.",
+    "tags": ["C#", ".NET 6", "ASP.NET Core", "Clean Architecture", "Entity Framework"],
+    "featuredOrder": 5
+  }
+]

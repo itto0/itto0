@@ -1,0 +1,83 @@
+{
+  "user": {
+    "login": "itto0",
+    "name": "Torino",
+    "avatar_url": "https://avatars.githubusercontent.com/u/49272304?v=4",
+    "bio": "Software Engineer",
+    "location": "Central Java, Indonesia",
+    "public_repos": 12,
+    "html_url": "https://github.com/itto0"
+  },
+  "repos": [
+    {
+      "id": 1,
+      "name": "counter-service",
+      "full_name": "itto0/counter-service",
+      "description": "High performance counting microservice",
+      "html_url": "https://github.com/itto0/counter-service",
+      "homepage": null,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "language": "Python",
+      "topics": ["python", "fastapi", "redis"],
+      "pushed_at": "2026-03-01T00:00:00Z",
+      "archived": false
+    },
+    {
+      "id": 2,
+      "name": "cdc-chicken-counting",
+      "full_name": "itto0/cdc-chicken-counting",
+      "description": "Computer vision counting pipeline",
+      "html_url": "https://github.com/itto0/cdc-chicken-counting",
+      "homepage": null,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "language": "Python",
+      "topics": ["opencv", "computer-vision", "tracking"],
+      "pushed_at": "2026-02-15T00:00:00Z",
+      "archived": false
+    },
+    {
+      "id": 3,
+      "name": "cdc-pipeline",
+      "full_name": "itto0/cdc-pipeline",
+      "description": "Change data capture pipeline in Rust",
+      "html_url": "https://github.com/itto0/cdc-pipeline",
+      "homepage": null,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "language": "Rust",
+      "topics": ["rust", "cdc", "streaming"],
+      "pushed_at": "2026-01-20T00:00:00Z",
+      "archived": false
+    },
+    {
+      "id": 4,
+      "name": "LicensePlateRecognition",
+      "full_name": "itto0/LicensePlateRecognition",
+      "description": "Automated license plate recognition system",
+      "html_url": "https://github.com/itto0/LicensePlateRecognition",
+      "homepage": null,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "language": "Python",
+      "topics": ["ocr", "opencv"],
+      "pushed_at": "2025-11-10T00:00:00Z",
+      "archived": false
+    },
+    {
+      "id": 5,
+      "name": "ASP.NET-Core-MVC-6-Starter-Kit",
+      "full_name": "itto0/ASP.NET-Core-MVC-6-Starter-Kit",
+      "description": "Enterprise starter kit for ASP.NET Core 6 MVC",
+      "html_url": "https://github.com/itto0/ASP.NET-Core-MVC-6-Starter-Kit",
+      "homepage": null,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "language": "C#",
+      "topics": ["csharp", "aspnetcore", "mvc"],
+      "pushed_at": "2025-08-05T00:00:00Z",
+      "archived": false
+    }
+  ]
+}
