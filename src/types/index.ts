@@ -48,6 +48,7 @@ export interface EnrichedProject {
   language: string;
   tags: string[];
   updatedAt: string;
+  featuredOrder: number;
 }
 
 export interface LanguageStat {
